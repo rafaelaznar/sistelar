@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>elicudo</title>
+    <style>
+        td {
+            text-align: center
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function fgenerar() {
+                return function () {
+                    tabla = "";
+                    for (i = 1; i <= 10; i++) {
+                        tabla += "<tr>";
+                        for (j = 1; j <= 10; j++) {
+                            tabla += "<td>";
+                            tabla += j * i;
+                            tabla += "</td>";
+                        }
+                        tabla += "</tr>";
+                    }
+                    $("#tabla").html(tabla);
+                }
+            }
+            function fborrar() {
+                return function () {
+                    $("#tabla").empty();
+                }
+            }
+            $("#btnGenerar").click(fgenerar());
+            $("#btnBorrar").click(fborrar());
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-auto text-center">
+                <h1>elicudo</h1>
+                <h2>Cuadrante de multiplicaciones dinámico</h2>
+                <h3>Procesamiento en entorno cliente con Javascript y JQuery</h3>
+                <h3>Con botón generador de tabla</h3>
+                <button class="btn btn-success mt-4" id="btnGenerar">Generar Tabla</button>
+                <button class="btn btn-danger mt-4" id="btnBorrar">Borrar Tabla</button>
+                <table class="table table-bordered table-success table-striped mx-auto mt-5" style="width: 500px;"
+                    id="tabla"></table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
